@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/***** HOMEPAGE *****/
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: Poppins, sans-serif;
+    font-size: 1.2rem;
+    color: #2F303A;
+    min-height: 100vh;
+}
+
+.full-height-grow {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-nav ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  color: inherit;
+  text-decoration: none;
+  padding: 1.2rem;
+}
+
+.main-nav a:hover {
+  color: #207D90; //#D9756C,
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0;// auto;
+  padding: 0;// 40px;
+  padding-right: 40px;
+}
+
+.tittle {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 3.2em;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  color: #D9756C;
+}
+
+.subtitle {
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  color: inherit;
+  background-color: #FBB9B3;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.btn:hover {
+  color: #D9756C;
+}
