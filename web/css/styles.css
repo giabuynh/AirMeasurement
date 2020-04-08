@@ -10,7 +10,7 @@
 body{
     padding: 0;
     margin: 0;
-    background-color: #E5E5E5;
+    background-color: #F2F2F2;
     font-family: Poppins, sans-serif;
     font-size: 1.2rem;
     color: #2F303A;
@@ -22,47 +22,77 @@ body{
   flex-direction: column;
 }
 
-.main-nav ul {
+.main-nav ul, .footer-nav ul {
   display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.main-nav a {
+.main-nav a, .footer-nav a {
   color: inherit;
   text-decoration: none;
-  padding: 1.2rem;
+  padding: 1.5rem;
 }
 
-.main-nav a:hover {
+.main-nav a:hover, .footer-nav a:hover {
   color: #207D90; //#D9756C,
 }
 
-.main-header {
+.main-header, .main-footer {
   display: flex;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-family: Montserrat;
+}
+
+.main-header {
   justify-content: flex-end;
   align-items: center;
   height: 80px;
+  font-size: 1.2em;
+}
+
+.main-footer {
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: #7EB9BF;
+  font-size: 0.9em;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100vw;
   margin: 0;// auto;
   padding: 0;// 40px;
-  padding-right: 40px;
+  flex-grow: 1;
 }
 
-.tittle {
+.title, .content-title {
   font-family: Montserrat;
-  font-weight: bold;
   font-size: 3.2em;
   margin-bottom: 1rem;
   margin-top: 0;
+}
+
+.title {
+  font-weight: bold;
   color: #D9756C;
 }
 
+.content-title {
+  font-weight: normal;
+  color: #207D90;
+}
+
 .subtitle {
+  font-family: Poppins;
   font-weight: normal;
   font-size: 1.5em;
   margin-bottom: 2rem;
@@ -74,7 +104,8 @@ body{
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-family: Montserrat;
+  font-size: 1.2em;
   font-weight: 500;
 }
 
