@@ -11,6 +11,7 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-end;
+  padding-left: 0;
 }
 
 .home-main-section .cuttie-cat {
@@ -29,6 +30,8 @@
   align-items: flex-start;
   margin: 1rem;
   align-self: center;
+  padding-right: 40px;
+  padding-left: 0;
 }
 
 @media (max-width: 900px) {

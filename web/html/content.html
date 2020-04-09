@@ -8,36 +8,39 @@
         <link rel="stylesheet" href="../css/content.css" type="text/css" id="themeCSS">
         <script type="text/javascript" src="script.js"></script>
     </head>
-    <body class="container full-height-grow">
-      <header class="main-header">
-        <nav class="main-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Get Started</a></li>
-            <li><a href="#">Chart</a></li>
-          </ul>
-        </nav>
-      </header>
+    <body class="full-height-grow">
+      <div class="container">
+        <header class="main-header">
+          <nav class="main-nav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Get Started</a></li>
+              <li><a href="#">Chart</a></li>
+            </ul>
+          </nav>
+        </header>
 
-      <section class="content-main-section">
-        <h1 class="content-title">Let's see what we got:</h1>
-        <div class="icon-section">
-          <div class="icon">
-            <img src="../images/temperature-vector.svg" alt="Temperature Icon" title="Temperature" width="100px">
-            <h3><span id="temperature"></span>°C</h3>
+        <section class="content-main-section">
+          <h1 class="content-title">Let's see what we got:</h1> <br>
+          <div class="icon-section">
+            <div class="icon">
+              <img src="../images/temperature-vector.svg" alt="Temperature Icon" title="Temperature" width="90px">
+              <h3><span id="temperature"></span>°C</h3>
+            </div>
+            <div class="icon">
+              <img src="../images/humidity-vector.svg" alt="Humidity Icon" title="Humidity" width="110px">
+              <h3><span id="humidity"></span>%</h3>
+            </div>
+            <div class="icon">
+              <img src="../images/alcohol-vector.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
+              <h3><span id="alcohol"></span> mg/L</h3>
+            </div>
           </div>
-          <div class="icon">
-            <img src="../images/humidity-vector.svg" alt="Humidity Icon" title="Humidity" width="120px">
-            <h3><span id="humidity"></span>%</h3>
-          </div>
-          <div class="icon">
-            <img src="../images/alcohol-vector.svg" alt="Alcohol Icon" title="Alcohol" width="150px">
-            <h3><span id="alcohol"></span> mg/L</h3>
-          </div>
-        </div>
-      </section>
-
-      <footer class="main-footer">
+        </section>
+      </div>
+    </body>
+    <footer class="main-footer">
+      <div class="container">
         <nav class="footer-nav">
           <ul>
             <li> <a href="#">About us</a> </li>
@@ -45,6 +48,6 @@
           </ul>
         </nav>
         <span>Last update: 2020</span>
-      </footer>
-    </body>
+      </div>
+    </footer>
 </html>
