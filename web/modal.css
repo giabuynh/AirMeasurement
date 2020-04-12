@@ -1,5 +1,3 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -8,7 +6,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   /* padding-top: 100px; Location of the box */
   left: 0;
   top: 0;
-
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -23,7 +20,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 45%;
+  width: 40%;
+  border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -42,48 +40,46 @@ body {font-family: Arial, Helvetica, sans-serif;}
   to {top:0; opacity:1}
 }
 
-.modal-header {
-  padding: 8px 20px;
-  background-color: #D9756C;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #5cb85c; */
-  color: white;
-}
 
 .modal-body {
+  
   padding: 2px 16px;
 }
 
-.modal-footer {
-  padding: 8px 20px;
-  /* background-color: #D9756C; */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 img{
-  /* position: relative; */
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
   z-index: 3;
-	width: 100px;
-  height: 100px; 
+	width: 120px;
+  height: 120px; 
 }
 
 button{
 	position: relative;
 	 width: 200px;
-	height: 50px;
-	/*left: 470px;
-	top: 400px; */
-  /* left: 39%; */
+  height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 	background: #F2B9B3;
 	border-radius: 10px;
 	font-size: 24px;
 }
 p{
+  margin-bottom: 30px;
   text-align: center;
   font-size: 25px;
+}
+.rec6{
+	position: absolute;
+	width: 100%;
+	height: 90px;
+	left: 0px;
+	top: 0px;
+	z-index: 2;
+	background: #D9756C;
 }
