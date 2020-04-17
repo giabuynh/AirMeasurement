@@ -62,15 +62,15 @@ body{
   font-size: 0.9em;
 }
 
-.footer-nav {
+.main-footer .container {
   display: flex;
   justify-content: space-between;
 }
 
 .container {
   max-width: 100vw;
-  margin: 0;// auto;
-  padding: 0;// 40px;
+  margin: 0; /* auto; */
+  padding: 0;
   flex-grow: 1;
 }
 
