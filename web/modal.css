@@ -31,7 +31,7 @@
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
+  from {top:-300px; opacity:0}
   to {top:0; opacity:1}
 }
 
@@ -42,7 +42,7 @@
 
 
 .modal-body {
-  
+
   padding: 2px 16px;
 }
 
@@ -54,7 +54,7 @@ img{
   margin-top: 20px;
   z-index: 3;
 	width: 120px;
-  height: 120px; 
+  height: 120px;
 }
 
 button{

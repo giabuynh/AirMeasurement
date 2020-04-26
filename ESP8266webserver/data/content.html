@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Measurement with Adruino</title>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" id="themeCSS">
+        <link rel="stylesheet" href="css/content.css" type="text/css" id="themeCSS">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body class="full-height-grow">
+      <div class="container">
+        <header class="main-header">
+          <nav class="main-nav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Get Started</a></li>
+              <li><a href="#">Chart</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content-main-section">
+          <h1 class="content-title">Let's see what we got:</h1> <br>
+          <div class="icon-section">
+            <div class="icon">
+              <img src="https://svgshare.com/i/KV1.svg.svg" alt="Temperature Icon" title="Temperature" width="90px">
+              <h3><span id="temperature">%TEMPERATURE%</span> °C</h3>
+            </div>
+            <div class="icon">
+              <img src="https://svgshare.com/i/KTo.svg" alt="Humidity Icon" title="Humidity" width="110px">
+              <h3><span id="humidity">%HUMIDITY%</span> &#37;</h3>
+            </div>
+            <div class="icon">
+              <img src="https://svgshare.com/i/KSj.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
+              <h3><span id="alcohol">%ALCOHOL%</span> mg/L</h3>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+    <footer class="main-footer">
+      <div class="container">
+        <nav class="footer-nav">
+          <ul>
+            <li> <a href="#">About us</a> </li>
+            <li> <a href="#">Report</a> </li>
+          </ul>
+        </nav>
+        <span>Last update: 2020</span>
+      </div>
+    </footer>
+
+    <script>
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+            document.getElementById("temperature").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "/temperature", true);
+        xhttp.send();
+      }, 500);
+
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+            document.getElementById("humidity").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "/humidity", true);
+        xhttp.send();
+      }, 500);
+
+    </script>
+</html>
