@@ -22,10 +22,10 @@
   padding: 0.75rem 10%;
   margin-bottom: 2rem;
   height: auto;
-  font-family: Poppins;
-  font-size: 40px;
+  font-family: Work Sans;
+  font-size: 50px;
   color: inherit;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 @media (max-width: 600px) {
