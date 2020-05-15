@@ -42,6 +42,7 @@ void setup() {
   }
 
   // Connect to WiFi
+  WiFi.hostname("giabuynh");
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.println(WiFi.status());
@@ -55,7 +56,7 @@ void setup() {
     });
   server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request) {
       request->send(SPIFFS, "/index.html", String(), false, processor);
-    })
+    });
   server.on("/content.html", HTTP_GET, [](AsyncWebServerRequest *request) {
       request->send(SPIFFS, "/content.html", String(), false, processor);
     });
