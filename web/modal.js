@@ -8,7 +8,7 @@ var btn = document.getElementById("myBtn");
 // Get the <button> element that closes the modal
 var button = document.getElementById("butt");
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
 }
@@ -24,4 +24,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+}
+
+for (var i = 0; i < 10; i++) {
+  if (i==9) document.getElementById('flame-modal').style.display = 'flex';
 }

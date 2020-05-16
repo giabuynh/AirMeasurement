@@ -5,13 +5,14 @@
 #include <DHT.h>
 #include <Wire.h>
 
-const char* ssid = "Gia Binh";
-const char* password = "77778888";
+const char* ssid = "La Lanterna - L1";
+const char* password = "vitrathat";
 
 AsyncWebServer server(80);
 
 #define dhtPin D1
 #define dhtType DHT11
+#define flamePin D7
 DHT dht(dhtPin, dhtType);
 float t = 0.0;
 float h = 0.0;
@@ -33,6 +34,7 @@ void setup() {
   
   // Initialize sensor
   dht.begin();
+  pinMode(flamePin, INPUT);
 
   // Initialize SPIFFS
   if (!SPIFFS.begin()) 
@@ -44,9 +46,10 @@ void setup() {
   // Connect to WiFi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.println(WiFi.status());
+    Serial.println("Connecting");
     delay(5000);
   }
+  Serial.println("Connected");
   Serial.println(WiFi.localIP());
 
   // Route for root / web page
@@ -91,6 +94,9 @@ void setup() {
   server.on("/humidity", HTTP_GET, [](AsyncWebServerRequest *request){
       request->send_P(200, "text/plain", String(h).c_str());
     });
+  server.on("/alcohol", HTTP_GET, [](AsyncWebServerRequest *request){
+      request->send_P(200, "text/plain", String(a).c_str());
+    });
 
   // Start server
   server.begin();
@@ -103,13 +109,22 @@ void loop() {
     previousMillis = currentMillis;
     float newT = dht.readTemperature();
     float newH = dht.readHumidity();
+    float newA = analogRead(A0);
+    int f = digitalRead(flamePin);  
+
+    if (f == LOW) Serial.println("FIRE");
+    
     if (isnan(newT) || isnan(newH))
       Serial.println("Fail to read from DHT sensor");
     else
-    {
-      t = newT;
-      h = newH;
-      Serial.print(t); Serial.print(" "); Serial.println(h);
-    }
+      if (isnan(newA))
+        Serial.println("Fail to read alcohol value");
+      else
+      {
+        t = newT;
+        h = newH;
+        a = newA;
+        Serial.print(t); Serial.print(" "); Serial.print(h); Serial.print(" "); Serial.println(a);
+      }
   }
 }

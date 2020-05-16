@@ -4,11 +4,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Air Measurement with Adruino</title>
-        <link rel="stylesheet" href="../css/styles.css" type="text/css" id="themeCSS">
-        <link rel="stylesheet" href="../css/content.css" type="text/css" id="themeCSS">
-        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
+        <link rel="stylesheet" href="../css/content.css" type="text/css">
+        <link rel="stylesheet" href="../css/alertbox.css" type="text/css">
     </head>
     <body class="full-height-grow">
+      <div class="modal" id="flame-modal">
+        <div class="modal-content">
+          <div class="top">
+            <img src="../images/flame-vector.svg" alt="Flame Icon" title="Flame" width="100vw">
+          </div>
+          <p class="title">Uh oh!!</p>
+          <p class="subtitle">Something is on fire. Check it out!</p>
+          <button type="button" name="modal-btn" class="btn"
+            onclick="document.getElementById('flame-modal').style.display='none'">Okay, I got it</button>
+        </div>
+      </div>
+
       <div class="container">
         <header class="main-header">
           <nav class="main-nav">
@@ -35,6 +47,7 @@
               <img src="../images/alcohol-vector.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
               <p><span id="alcohol">0.3</span>&nbsp;mg/L</p>
             </div>
+            <span id="flame" class="hidden">%FLAME%</span>
           </div>
         </section>
       </div>
@@ -50,4 +63,10 @@
         <span>Last update: 2020</span>
       </div>
     </footer>
+
+    <script type="text/javascript">
+      for (var i = 0; i < 100000; i++) {
+        if (i==100000-1) document.getElementById('flame-modal').style.display = "flex";
+      }
+    </script>
 </html>

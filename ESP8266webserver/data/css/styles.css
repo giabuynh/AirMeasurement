@@ -106,6 +106,8 @@ body{
   font-family: Montserrat;
   font-size: 1.2em;
   font-weight: 500;
+  border-width: 0;
+  text-align: center;
 }
 
 .btn:hover {
