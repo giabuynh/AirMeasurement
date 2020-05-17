@@ -5,8 +5,8 @@
 #include <DHT.h>
 #include <Wire.h>
 
-const char* ssid = "La Lanterna - L1";
-const char* password = "vitrathat";
+const char* ssid = "Gia Binh";
+const char* password = "77778888";
 
 AsyncWebServer server(80);
 
@@ -17,6 +17,7 @@ DHT dht(dhtPin, dhtType);
 float t = 0.0;
 float h = 0.0;
 float a = 0.0;
+int f = HIGH;
 
 unsigned long previousMillis = 0;
 
@@ -26,6 +27,8 @@ String processor(const String& var) {
     if (var == "HUMIDITY") return String(h);
     else 
       if (var == "ALCOHOL") return String(a);
+      else
+        if (var == "FLAME") return String(f);
   return String(); 
 }
 
@@ -58,7 +61,7 @@ void setup() {
     });
   server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request) {
       request->send(SPIFFS, "/index.html", String(), false, processor);
-    })
+    });
   server.on("/content.html", HTTP_GET, [](AsyncWebServerRequest *request) {
       request->send(SPIFFS, "/content.html", String(), false, processor);
     });
@@ -71,6 +74,9 @@ void setup() {
     });
   server.on("/css/content.css", HTTP_GET, [](AsyncWebServerRequest *request) {
       request->send(SPIFFS, "/css/content.css", "text/css");
+    });
+  server.on("/css/alertbox.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+      request->send(SPIFFS, "/css/alertbox.css", "text/css");
     });
 
   // Route for images -- No need, we use online images :>
@@ -95,7 +101,10 @@ void setup() {
       request->send_P(200, "text/plain", String(h).c_str());
     });
   server.on("/alcohol", HTTP_GET, [](AsyncWebServerRequest *request){
-      request->send_P(200, "text/plain", String(a).c_str());
+      request->send_P(200, "text/plain", String(a/1000).c_str());
+    });
+  server.on("/flame", HTTP_GET, [](AsyncWebServerRequest *request) {
+      request->send_P(200, "text/plain", String(f).c_str());
     });
 
   // Start server
@@ -110,8 +119,9 @@ void loop() {
     float newT = dht.readTemperature();
     float newH = dht.readHumidity();
     float newA = analogRead(A0);
-    int f = digitalRead(flamePin);  
+    int newF = digitalRead(flamePin);  
 
+    f = newF;
     if (f == LOW) Serial.println("FIRE");
     
     if (isnan(newT) || isnan(newH))
