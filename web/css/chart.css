@@ -1,0 +1,54 @@
+.chart-main-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 2rem;
+}
+
+.slides {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.pointer {
+  color: #7EB9BF;
+  align-items: center;
+  font-size: 4rem;
+  text-decoration: none;
+  cursor: pointer;
+  position: inherit;
+}
+
+.pointer:hover {
+  color: #207D90;
+}
+
+.icon {
+  flex-grow: 1;
+  margin: 2rem 0;
+  padding: 0;
+  align-self: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.icon p {
+  margin: 0;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .icon {
+    display: none;
+  }
+}
+
+.chart {
+  flex-grow: 5;
+  height: 70vh;
+  background-color: blue;
+  margin: 1rem;
+}

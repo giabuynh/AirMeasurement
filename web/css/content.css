@@ -1,5 +1,6 @@
 .content-main-section {
-  display: block;
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: center;
   flex-grow: 1;
