@@ -106,8 +106,81 @@ body{
   font-family: Montserrat;
   font-size: 1.2em;
   font-weight: 500;
+  border-width: 0;
+  text-align: center;
 }
 
 .btn:hover {
   color: #D9756C;
+}
+
+.modal {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: black;
+  background-color: rgb(0,0,0,0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5em;
+  margin: auto;
+  padding: 0;
+  padding-bottom: 1em;
+  width: 50%;
+  animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+  from { transform: scale(0); }
+  todo { transform: scale(1); }
+}
+
+.top {
+  height: 70px;
+  width: 100%;
+  background-color: #D9756C;
+  border-radius: 0.5em 0.5em 0 0;
+  border-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.top img {
+  margin: 0;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+.modal-content .title {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: inherit;
+  margin: 0.25rem;
+  text-align: center;
+}
+
+.modal-content .subtitle {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0.25rem;
+  text-align: center;
+}
+
+.modal-content .btn {
+  font-size: 1rem;
+  margin: 0.25rem;
+  width: 65%;
 }

@@ -4,17 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Air Measurement with Adruino</title>
-        <link rel="stylesheet" href="css/styles.css" type="text/css" id="themeCSS">
-        <link rel="stylesheet" href="css/index.css" type="text/css" id="themeCSS">
-        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <link rel="stylesheet" href="css/index.css" type="text/css">
     </head>
     <body class="container full-height-grow">
+      <div class="modal" id="flame-modal">
+        <div class="modal-content">
+          <div class="top">
+            <img src="https://svgshare.com/i/LBF.svg" alt="Flame Icon" title="Flame" width="100vw">
+          </div>
+          <p class="title">Uh oh!!</p>
+          <p class="subtitle">Something is on fire. Check it out!</p>
+          <button type="button" name="modal-btn" class="btn"
+            onclick="document.getElementById('flame-modal').style.display='none'">Okay, I got it</button>
+        </div>
+      </div>
+
       <header class="main-header">
         <nav class="main-nav">
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="content.html">Get Started</a></li>
-            <li><a href="#">Chart</a></li>
+            <li><a href="chart.html">Chart</a></li>
           </ul>
         </nav>
       </header>
@@ -33,6 +44,7 @@
       <div class="home-circle-1"></div>
       <div class="home-circle-2"></div>
       <div class="home-circle-3"></div>
-
     </body>
+
+    <script src="script.js"></script>
 </html>
