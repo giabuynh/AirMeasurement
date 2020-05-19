@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Air Measurement with Adruino</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="stylesheet" href="../css/content.css" type="text/css">
+    <link rel="stylesheet" href="../css/alertbox.css" type="text/css">
+    <link rel="stylesheet" href="../css/chart.css" type="text/css">
+  </head>
+
+  <body class="full-height-grow">
+    <div class="container">
+      <header class="main-header">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="content.html">Get Started</a></li>
+            <li><a href="#">Chart</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="chart-main-section">
+        <a onclick="plusSlides(-1)" class="pointer">&#10094;</a>
+        <div class="slides">
+          <div class="icon">
+            <p class="title">Temperature</p>
+            <img src="../images/temperature-vector.svg" alt="Temperature Icon" title="Temperature" width="90px">
+            <p><span id="temperature">37.56</span>°C</p>
+          </div>
+          <div class="chart">
+
+          </div>
+        </div>
+        <div class="slides">
+          <div class="icon">
+            <p class="title">Humidity</p>
+            <img src="../images/humidity-vector.svg" alt="Humidity Icon" title="Humidity" width="110px">
+            <p><span id="humidity">92.01</span>&#37;</p>
+          </div>
+          <div class="chart">
+
+          </div>
+        </div>
+        <div class="slides">
+          <div class="icon">
+            <p class="title">Alcohol</p>
+            <img src="../images/alcohol-vector.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
+            <p><span id="alcohol">0.3</span>&nbsp;mg/L</p>
+          </div>
+          <div class="chart">
+
+          </div>
+        </div>
+        <a onclick="plusSlides(1)" class="pointer">&#10095;</a>
+      </section>
+    </div>
+  </body>
+
+  <footer class="main-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <ul>
+          <li> <a href="#">About us</a> </li>
+          <li> <a href="#">Report</a> </li>
+        </ul>
+      </nav>
+      <span>Last update: 2020</span>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    var slideIndex = 0;
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var slides = document.getElementsByClassName("slides");
+      slideIndex = (n % slides.length != 0) ? (n % slides.length) : slides.length;
+      for (var i=0; i<slides.length; ++i)
+        slides[i].style.display = "none";
+      slides[slideIndex - 1].style.display = "flex";
+      console.log(slideIndex);
+    }
+
+    showSlides(1);
+  </script>
+</html>

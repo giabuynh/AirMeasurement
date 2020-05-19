@@ -1,0 +1,134 @@
+
+
+/*  Header  */
+body{
+	background: #E5E5E5;
+}
+
+h2{
+	position: absolute;
+	width: 854px;
+	height: 128px;
+	left: 94px;
+	top: 95px;
+
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 72px;
+	line-height: 88px;
+
+	color: #207D90;
+
+}
+p{
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 67px;
+	line-height: 100px;
+/* identical to box height */
+
+	text-align: center;
+
+	color: #2F303A;
+}
+.p1{
+	position: absolute;
+	width: 155px;
+	height: 101px;
+	left: 130px;
+	top: 410px;
+}
+
+.p2{
+	position: absolute;
+	width: 136px;
+	height: 101px;
+	left: 618px;
+	top: 430px;
+}
+.p3{
+	position: absolute;
+	width: 254px;
+	height: 101px;
+	left: 1025px;
+	top: 430px;
+}
+
+header{
+	position: absolute;
+	width: 1366px;
+	height: 127px;
+	left: 0px;
+	top: 0px;
+
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	line-height: 34px;
+	text-align: left;
+
+	color: #2F303A;
+}
+
+a{
+    text-decoration: none;
+}
+.a1{
+   	 position: absolute;
+   	 left: 59.22%;
+    	right: 33.46%;
+    	top: 36.22%;
+    	bottom: 37.01%;
+}
+.a2{
+    	position: absolute;
+   	 left: 69.4%;
+   	 right: 17.35%;
+    	top: 36.22%;
+    	bottom: 37.01%;
+}
+.a3{
+    	position: absolute;
+    	left: 85.51%;
+   	 right: 7.83%;
+    	top: 36.22%;
+   	 bottom: 37.01%;
+}
+
+
+
+/*Temperature*/
+.r{
+	position: absolute;
+	width: 100px;
+	height: 210px;
+	left: 160px;
+	top: 279px;
+}
+
+/* Alcohol */
+
+.al{
+	position: absolute;
+	width: 110px;
+	height: 143px;
+	left: 625px;
+	top: 340px;
+}
+
+/* Humidity */
+.h{
+	position: absolute;
+	width: 144px;
+	height: 175px;
+	left: 1060px;
+	top: 310px;
+
+
+}
+
+
+

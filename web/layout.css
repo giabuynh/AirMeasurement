@@ -1,0 +1,113 @@
+body{
+    background: url("cuttie-cat.png") no-repeat;
+    background-size: 490px 770px;
+}
+h1{
+    position: absolute;
+    width: 700px;
+    height: 180px;
+    left: 554px;
+    top: 100px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 88px;
+
+    color: #D9756C;
+
+}
+p{
+    position: absolute;
+    width: 660px;
+    height: 124px;
+    left: 554px;
+    top: 290px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 54px;
+}
+button{
+    position: absolute;
+    width: 228px;
+    height: 87px;
+    left: 554px;
+    top: 450px;
+
+    background: #F2B9B3;
+    border-radius: 10px;
+    font-size: 28px;
+}
+header{
+    position: absolute;
+    width: 1366px;
+    height: 127px;
+    left: 0px;
+    top: 0px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+
+    color: #2F303A;
+}
+a{
+    text-decoration: none;
+}
+.a1{
+    position: absolute;
+    left: 59.22%;
+    right: 33.46%;
+    top: 36.22%;
+    bottom: 37.01%;
+}
+.a2{
+    position: absolute;
+    left: 69.4%;
+    right: 17.35%;
+    top: 36.22%;
+    bottom: 37.01%;
+}
+.a3{
+    position: absolute;
+    left: 85.51%;
+    right: 7.83%;
+    top: 36.22%;
+    bottom: 37.01%;
+}
+
+.eclipse1{
+    position: absolute;
+    width: 391px;
+    height: 391px;
+    left: 229px;
+    top: -187px;
+    border-radius: 300px;
+    background: rgba(126, 185, 191, 0.2);
+}
+.eclipse2{
+    position: absolute;
+    width: 321px;
+    height: 321px;
+    left: 1000px;
+    top: 310px;
+    border-radius: 300px;
+    background: rgba(32, 125, 144, 0.2);
+}
+.eclipse3{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    left: 570px;
+    top: 0px;
+    border-radius: 300px;
+    background: rgba(217, 117, 108, 0.2);
+}
+

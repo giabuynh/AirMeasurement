@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Measurement with Adruino</title>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
+        <link rel="stylesheet" href="../css/content.css" type="text/css">
+        <link rel="stylesheet" href="../css/alertbox.css" type="text/css">
+    </head>
+    <body class="full-height-grow">
+      <div class="modal" id="flame-modal">
+        <div class="modal-content">
+          <div class="top">
+            <img src="../images/flame-vector.svg" alt="Flame Icon" title="Flame" width="100vw">
+          </div>
+          <p class="title">Uh oh!!</p>
+          <p class="subtitle">Something is on fire. Check it out!</p>
+          <button type="button" name="modal-btn" class="btn"
+            onclick="document.getElementById('flame-modal').style.display='none'">Okay, I got it</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <header class="main-header">
+          <nav class="main-nav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Get Started</a></li>
+              <li><a href="#">Chart</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="content-main-section">
+          <h1 class="content-title">Let's see what we got:</h1> <br>
+          <div class="icon-section">
+            <div class="icon">
+              <img src="../images/temperature-vector.svg" alt="Temperature Icon" title="Temperature" width="90px">
+              <p><span id="temperature">37.56</span>°C</p>
+            </div>
+            <div class="icon">
+              <img src="../images/humidity-vector.svg" alt="Humidity Icon" title="Humidity" width="110px">
+              <p><span id="humidity">92.01</span>&#37;</p>
+            </div>
+            <div class="icon">
+              <img src="../images/alcohol-vector.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
+              <p><span id="alcohol">0.3</span>&nbsp;mg/L</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+    <footer class="main-footer">
+      <div class="container">
+        <nav class="footer-nav">
+          <ul>
+            <li> <a href="#">About us</a> </li>
+            <li> <a href="#">Report</a> </li>
+          </ul>
+        </nav>
+        <span>Last update: 2020</span>
+      </div>
+    </footer>
+
+    <script>
+      var time = 1000;
+      var flame = 1;
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+            document.getElementById("temperature").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "/temperature", true);
+        xhttp.send();
+      }, time);
+
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+            document.getElementById("humidity").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "/humidity", true);
+        xhttp.send();
+      }, time);
+
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+            document.getElementById("alcohol").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "/alcohol", true);
+        xhttp.send();
+      }, time);
+
+      setInterval(function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200)
+          {
+            var newF = this.responseText;
+            console.log(newF + " " + flame);
+            if (newF == 0 && newF != flame)
+              document.getElementById('flame-modal').style.display = "flex";
+            flame = newF;
+          }
+        };
+        xhttp.open("GET", "/flame", true);
+        xhttp.send();
+      }, time);
+    </script>
+</html>

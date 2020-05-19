@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Temperature vector">
+<circle id="Elipse 1" cx="50" cy="160" r="50" fill="#207D90"/>
+<rect id="Rectangle 1" x="13" width="73" height="160" rx="36.5" fill="#207D90"/>
+<circle id="Ellipse 2" cx="50.0476" cy="160.048" r="39.0476" fill="#F2F2F2"/>
+<rect id="Rectangle 2" x="25" y="12" width="50" height="148" rx="25" fill="#F2F2F2"/>
+<circle id="Ellipse 3" cx="49.5" cy="159.5" r="21.5" fill="#207D90"/>
+<rect id="Rectangle 3" x="42" y="83" width="16" height="77" rx="5" fill="#207D90"/>
+<rect id="Rectangle a" x="13" y="38" width="25" height="10" rx="5" fill="#207D90"/>
+<rect id="Rectangle b" x="13" y="56" width="25" height="10" rx="5" fill="#207D90"/>
+<rect id="Rectangle c" x="13" y="74" width="25" height="10" rx="5" fill="#207D90"/>
+<rect id="Rectangle c_2" x="13" y="92" width="25" height="10" rx="5" fill="#207D90"/>
+</g>
+</svg>

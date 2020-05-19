@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="stylesheet" href="../css/alertbox.css" type="text/css">
+    <title></title>
+  </head>
+  <body class="full-height-grow">
+    <div class="modal" id="flame-modal">
+      <div class="modal-content">
+        <div class="top">
+          <img src="../images/flame-vector.svg" alt="Flame Icon" title="Flame" width="100vw">
+        </div>
+        <p class="title">Uh oh!!</p>
+        <p class="subtitle">Something is on fire. Check it out!</p>
+        <button type="button" name="modal-btn" class="btn"
+          onclick="document.getElementById('flame-modal').style.display='none'">Okay, I got it</button>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+    for (var i = 0; i < 10; i++) {
+      if (i==9) document.getElementById('flame-modal').style.display = 'flex';
+    }
+  </script>
+</html>
