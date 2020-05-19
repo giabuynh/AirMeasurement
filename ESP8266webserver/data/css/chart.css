@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: row;
   vertical-align: middle;
-  align-content: center;
   width: 100%;
 }
 
@@ -36,13 +35,6 @@
   vertical-align: middle;
 }
 
-.icon .title {
-  font-weight: bold;
-  font-size: 2.4rem;
-  color: #207D90;
-  margin-bottom: 1rem;
-}
-
 .icon span {
   margin: 0;
   margin-top: 1rem;
@@ -50,9 +42,15 @@
 
 .chart {
   height: 70vh;
-  background-color: blue;
+  /* border: 1px solid red; */
   margin: 1rem;
   width: 60vw;
+}
+
+.chart iframe {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #cccccc; */
 }
 
 @media (max-width: 1000px) {

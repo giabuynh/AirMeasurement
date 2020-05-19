@@ -6,8 +6,6 @@
         <title>Air Measurement with Adruino</title>
         <link rel="stylesheet" href="css/styles.css" type="text/css">
         <link rel="stylesheet" href="css/content.css" type="text/css">
-        <link rel="stylesheet" href="css/alertbox.css" type="text/css">
-        <!-- <script type="text/javascript" src="script.js"></script> -->
     </head>
     <body class="full-height-grow">
       <div class="modal" id="flame-modal">
@@ -27,8 +25,8 @@
           <nav class="main-nav">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="#">Get Started</a></li>
-              <li><a href="#">Chart</a></li>
+              <li><a href="content.html">Get Started</a></li>
+              <li><a href="chart.html">Chart</a></li>
             </ul>
           </nav>
         </header>
@@ -52,6 +50,7 @@
         </section>
       </div>
     </body>
+
     <footer class="main-footer">
       <div class="container">
         <nav class="footer-nav">
@@ -64,55 +63,5 @@
       </div>
     </footer>
 
-    <script>
-      var time = 1000;
-      var flame = 1;
-      setInterval(function() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200)
-            document.getElementById("temperature").innerHTML = this.responseText;
-        };
-        xhttp.open("GET", "/temperature", true);
-        xhttp.send();
-      }, time);
-
-      setInterval(function() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200)
-            document.getElementById("humidity").innerHTML = this.responseText;
-        };
-        xhttp.open("GET", "/humidity", true);
-        xhttp.send();
-      }, time);
-
-      setInterval(function() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200)
-            document.getElementById("alcohol").innerHTML = this.responseText;
-        };
-        xhttp.open("GET", "/alcohol", true);
-        xhttp.send();
-      }, time);
-
-      setInterval(function() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200)
-          {
-            var newF = this.responseText;
-            console.log(newF + " " + flame);
-            if (newF == 0 && newF != flame)
-              document.getElementById('flame-modal').style.display = "flex";
-            flame = newF;
-          }
-        };
-        xhttp.open("GET", "/flame", true);
-        xhttp.send();
-      }, time);
-
-
-    </script>
+    <script src="script.js"></script>
 </html>
