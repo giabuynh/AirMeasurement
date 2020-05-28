@@ -52,6 +52,7 @@ void setup() {
   }
 
   // Connect to WiFi
+  WiFi.hostname("giabuynh");
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.println("Connecting");
