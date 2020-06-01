@@ -18,6 +18,7 @@ float t = 0.0;
 float h = 0.0;
 float a = 0.0;
 int f = HIGH;
+unsigned long previousMillis = 0;
 
 const int channelID = 1063062; 
 String writeAPIKey = "RAOKCHK6EQOSPSTR"; // write API key for your ThingSpeak Channel
@@ -117,41 +118,45 @@ float analogToPPM(float sensor_value) {
 }
 
 void loop() {
-  float newT = dht.readTemperature();
-  float newH = dht.readHumidity();
-  float newA = analogRead(A0);
-  newA = analogToPPM(newA);
-  int newF = digitalRead(flamePin);
-
-  f = newF;
-  if (f == LOW) Serial.println("FIRE");
-
-  if (isnan(newT) || isnan(newH))
-    Serial.println("Fail to read from DHT sensor");
-  else
-    if (isnan(newA))
-      Serial.println("Fail to read alcohol value");
+  unsigned long currentMillis = millis();
+  if (millis() - previousMillis >= 1000)
+  {
+    previousMillis = currentMillis;
+    float newT = dht.readTemperature();
+    float newH = dht.readHumidity();
+    float newA = analogRead(A0);
+    newA = analogToPPM(newA);
+    int newF = digitalRead(flamePin);
+  
+    f = newF;
+    if (f == LOW) Serial.println("FIRE");
+  
+    if (isnan(newT) || isnan(newH))
+      Serial.println("Fail to read from DHT sensor");
     else
-    {
-      t = newT;
-      h = newH;
-      a = newA;
-      Serial.print(t); Serial.print(" "); Serial.print(h); Serial.print(" "); Serial.println(a);
-      if (client.connect(thingspeak_server, 80))
+      if (isnan(newA))
+        Serial.println("Fail to read alcohol value");
+      else
       {
-        String str = "field1=" + String(t, 2) + "&field2=" + String(h, 2) + "&field3=" + String(a, 2);
-        client.print("POST /update HTTP/1.1\n");
-        client.print("Host: api.thingspeak.com\n");
-        client.print("Connection: close\n");
-        client.print("X-THINGSPEAKAPIKEY: " + writeAPIKey + "\n");
-        client.print("Content-Type: application/x-www-form-urlencoded\n");
-        client.print("Content-Length: ");
-        client.print(str.length());
-        client.print("\n\n");
-        client.print(str);
-        client.print("\n\n");
+        t = newT;
+        h = newH;
+        a = newA;
+        Serial.print(t); Serial.print(" "); Serial.print(h); Serial.print(" "); Serial.println(a);
+        if (client.connect(thingspeak_server, 80))
+        {
+          String str = "field1=" + String(t, 2) + "&field2=" + String(h, 2) + "&field3=" + String(a, 2);
+          client.print("POST /update HTTP/1.1\n");
+          client.print("Host: api.thingspeak.com\n");
+          client.print("Connection: close\n");
+          client.print("X-THINGSPEAKAPIKEY: " + writeAPIKey + "\n");
+          client.print("Content-Type: application/x-www-form-urlencoded\n");
+          client.print("Content-Length: ");
+          client.print(str.length());
+          client.print("\n\n");
+          client.print(str);
+          client.print("\n\n");
+        }
+        client.stop();
       }
-      client.stop();
-    }
-  delay(1000);
+  }
 }
