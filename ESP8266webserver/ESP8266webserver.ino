@@ -21,10 +21,8 @@ int f = HIGH;
 
 const int channelID = 1063062; 
 String writeAPIKey = "RAOKCHK6EQOSPSTR"; // write API key for your ThingSpeak Channel
-const char* host = "api.thingspeak.com";
+const char* thingspeak_server = "api.thingspeak.com";
 WiFiClient client;
-
-unsigned long previousMillis = 0;
 
 String processor(const String& var) {
   if (var == "TEMPERATURE") return String(t);
@@ -109,46 +107,51 @@ void setup() {
   server.begin();
 }
 
+float analogToPPM(float sensor_value) {
+  float sensor_volt = (float) sensor_value / 1025 * 5.0;
+  float RS = ((5 - sensor_volt)/sensor_volt);
+  float R0 = 0.02;
+  float ratio = RS/R0;
+  float lgPPM = (log10(ratio)* (-2.6)) + 2.7;
+  return (pow(10, lgPPM));
+}
+
 void loop() {
-  unsigned long currentMillis = millis();
-  if (millis() - previousMillis >= 1000)
-  {
-    previousMillis = currentMillis;
-    float newT = dht.readTemperature();
-    float newH = dht.readHumidity();
-    float newA = analogRead(A0);
-    newA /= 1000;
-    int newF = digitalRead(flamePin);
+  float newT = dht.readTemperature();
+  float newH = dht.readHumidity();
+  float newA = analogRead(A0);
+  newA = analogToPPM(newA);
+  int newF = digitalRead(flamePin);
 
-    f = newF;
-    if (f == LOW) Serial.println("FIRE");
+  f = newF;
+  if (f == LOW) Serial.println("FIRE");
 
-    if (isnan(newT) || isnan(newH))
-      Serial.println("Fail to read from DHT sensor");
+  if (isnan(newT) || isnan(newH))
+    Serial.println("Fail to read from DHT sensor");
+  else
+    if (isnan(newA))
+      Serial.println("Fail to read alcohol value");
     else
-      if (isnan(newA))
-        Serial.println("Fail to read alcohol value");
-      else
+    {
+      t = newT;
+      h = newH;
+      a = newA;
+      Serial.print(t); Serial.print(" "); Serial.print(h); Serial.print(" "); Serial.println(a);
+      if (client.connect(thingspeak_server, 80))
       {
-        t = newT;
-        h = newH;
-        a = newA;
-        Serial.print(t); Serial.print(" "); Serial.print(h); Serial.print(" "); Serial.println(a);
-        if (client.connect(host, 80))
-        {
-          String str = "field1=" + String(t, 2) + "&field2=" + String(h, 2) + "&field3=" + String(a, 2);
-          client.print("POST /update HTTP/1.1\n");
-          client.print("Host: api.thingspeak.com\n");
-          client.print("Connection: close\n");
-          client.print("X-THINGSPEAKAPIKEY: " + writeAPIKey + "\n");
-          client.print("Content-Type: application/x-www-form-urlencoded\n");
-          client.print("Content-Length: ");
-          client.print(str.length());
-          client.print("\n\n");
-          client.print(str);
-          client.print("\n\n");
-        }
-        client.stop();
+        String str = "field1=" + String(t, 2) + "&field2=" + String(h, 2) + "&field3=" + String(a, 2);
+        client.print("POST /update HTTP/1.1\n");
+        client.print("Host: api.thingspeak.com\n");
+        client.print("Connection: close\n");
+        client.print("X-THINGSPEAKAPIKEY: " + writeAPIKey + "\n");
+        client.print("Content-Type: application/x-www-form-urlencoded\n");
+        client.print("Content-Length: ");
+        client.print(str.length());
+        client.print("\n\n");
+        client.print(str);
+        client.print("\n\n");
       }
-  }
+      client.stop();
+    }
+  delay(1000);
 }
