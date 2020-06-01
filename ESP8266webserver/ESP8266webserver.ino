@@ -5,8 +5,8 @@
 #include <DHT.h>
 #include <Wire.h>
 
-const char* ssid = "Gia Binh";
-const char* password = "giabuynh";
+const char* ssid = "Sonder 4 Laptop 2";
+const char* password = "sondermtt";
 
 AsyncWebServer server(80);
 
@@ -19,7 +19,7 @@ float h = 0.0;
 float a = 0.0;
 int f = HIGH;
 
-const int channelID = 1063062; 
+const int channelID = 1063062;
 String writeAPIKey = "RAOKCHK6EQOSPSTR"; // write API key for your ThingSpeak Channel
 const char* thingspeak_server = "api.thingspeak.com";
 WiFiClient client;
@@ -50,7 +50,6 @@ void setup() {
   }
 
   // Connect to WiFi
-  WiFi.hostname("giabuynh");
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     Serial.println("Connecting");
@@ -90,7 +89,7 @@ void setup() {
       request->send(SPIFFS, "/script.js", "text/javascript");
     });
 
-  // Route to get data
+  // Response to XMLHttpRequest
   server.on("/temperature", HTTP_GET, [](AsyncWebServerRequest *request){
       request->send_P(200, "text/plain", String(t).c_str());
     });
@@ -108,8 +107,9 @@ void setup() {
   server.begin();
 }
 
+// Caculate analog value to PPM 
 float analogToPPM(float sensor_value) {
-  float sensor_volt = (float) sensor_value / 1025 * 5.0;
+  float sensor_volt = (float) sensor_value / 1024 * 5.0;
   float RS = ((5 - sensor_volt)/sensor_volt);
   float R0 = 0.02;
   float ratio = RS/R0;
@@ -154,5 +154,5 @@ void loop() {
       }
       client.stop();
     }
-  delay(1000);
+  delay(500);
 }
