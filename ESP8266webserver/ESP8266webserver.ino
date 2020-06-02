@@ -118,10 +118,7 @@ float analogToPPM(float sensor_value) {
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-  if (millis() - previousMillis >= 1000)
-  {
-    previousMillis = currentMillis;
+    delay(1000);
     float newT = dht.readTemperature();
     float newH = dht.readHumidity();
     float newA = analogRead(A0);
@@ -158,5 +155,4 @@ void loop() {
         }
         client.stop();
       }
-  }
 }
