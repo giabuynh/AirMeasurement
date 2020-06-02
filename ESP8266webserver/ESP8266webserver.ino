@@ -118,6 +118,7 @@ float analogToPPM(float sensor_value) {
 }
 
 void loop() {
+  delay(1000);
   float newT = dht.readTemperature();
   float newH = dht.readHumidity();
   float newA = analogRead(A0);
@@ -154,5 +155,4 @@ void loop() {
       }
       client.stop();
     }
-  delay(500);
 }
