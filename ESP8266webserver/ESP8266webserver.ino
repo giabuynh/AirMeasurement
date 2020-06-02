@@ -5,8 +5,8 @@
 #include <DHT.h>
 #include <Wire.h>
 
-const char* ssid = "Gia Binh";
-const char* password = "giabuynh";
+const char* ssid = "Sonder 4 Laptop";
+const char* password = "sondermtt";
 
 AsyncWebServer server(80);
 
