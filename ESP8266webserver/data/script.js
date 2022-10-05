@@ -1,5 +1,6 @@
 var time = 1000;
 var flame = 1;
+
 setInterval(function() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
