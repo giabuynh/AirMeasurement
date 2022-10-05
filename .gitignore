@@ -1,2 +1,5 @@
-/report
+/report/*.docx
+/report/*.pdf
+/report/*.pptx
 /NLCS-Detai1-2019-2020
+*.zip

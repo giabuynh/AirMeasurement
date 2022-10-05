@@ -5,8 +5,8 @@ zz #include<ESP8266WiFi.h>
 #include <DHT.h>
 #include <Wire.h>
 
-    const char *ssid = "Sonder 4 Laptop";
-const char *password = "sondermtt";
+    const char *ssid = "Sonder 4 Laptop"; // YOUR WIFI NAME
+const char *password = "sondermtt";       // YOUR WIFI PASSWORD
 
 AsyncWebServer server(80);
 
@@ -20,7 +20,7 @@ float a = 0.0;
 int f = HIGH;
 unsigned long previousMillis = 0;
 
-const int channelID = 1063062;
+const int channelID = 1063062;           // ThingSpeak channel ID
 String writeAPIKey = "RAOKCHK6EQOSPSTR"; // write API key for your ThingSpeak Channel
 const char *thingspeak_server = "api.thingspeak.com";
 WiFiClient client;
