@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Measurement with Arduino</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <link rel="stylesheet" href="css/chart.css" type="text/css">
+  </head>
+
+  <body class="full-height-grow">
+    <div class="container">
+      <div class="modal" id="flame-modal">
+        <div class="modal-content">
+          <div class="top">
+            <img src="https://svgshare.com/i/LBF.svg" alt="Flame Icon" title="Flame" width="100vw">
+          </div>
+          <p class="title">Uh oh!!</p>
+          <p class="subtitle">Something is on fire. Check it out!</p>
+          <button type="button" name="modal-btn" class="btn"
+            onclick="document.getElementById('flame-modal').style.display='none'">Okay, I got it</button>
+        </div>
+      </div>
+
+      <header class="main-header">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="content.html">Get Started</a></li>
+            <li><a href="chart.html">Chart</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="chart-main-section">
+        <a onclick="plusSlides(-1)" class="pointer">&#10094;</a>
+        <div class="slides">
+          <div class="icon">
+            <img src="https://svgshare.com/i/KV1.svg" alt="Temperature Icon" title="Temperature" width="90px">
+            <p><span id="temperature">%TEMPERATURE%</span>°C</p>
+          </div>
+          <div class="chart">
+            <iframe frameBorder="0"
+              src="https://thingspeak.com/channels/1063062/charts/1?color=7eb9bf&dynamic=true&results=20&title=TEMPERATURE&type=spline&xaxis=&yaxis=&width=auto&height=auto">
+            </iframe>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="icon">
+            <img src="https://svgshare.com/i/KTo.svg" alt="Humidity Icon" title="Humidity" width="110px">
+            <p><span id="humidity">%HUMIDITY%</span>&#37;</p>
+          </div>
+          <div class="chart">
+            <iframe frameBorder="0"
+              src="https://thingspeak.com/channels/1063062/charts/2?color=7eb9bf&dynamic=true&results=20&title=HUMIDITY&type=spline&xaxis=&yaxis=&width=auto&height=auto">
+            </iframe>
+          </div>
+        </div>
+        <div class="slides">
+          <div class="icon">
+            <img src="https://svgshare.com/i/KSj.svg" alt="Alcohol Icon" title="Alcohol" width="140px">
+            <p><span id="alcohol">%ALCOHOL%</span>&nbsp;ppm</p>
+          </div>
+          <div class="chart">
+            <iframe frameBorder="0"
+              src="https://thingspeak.com/channels/1063062/charts/3?color=7eb9bf&dynamic=true&results=20&title=ALCOHOL&type=spline&xaxis=&yaxis=&width=auto&height=auto">
+            </iframe>
+          </div>
+        </div>
+        <a onclick="plusSlides(1)" class="pointer">&#10095;</a>
+      </section>
+    </div>
+  </body>
+
+  <footer class="main-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <ul>
+          <li> <a href="https://drive.google.com/drive/folders/13LdHL-KiYeSh4izdgXFgU5kNSxKwaPhK?usp=sharing">About this project</a> </li>
+          <li> <a href="https://drive.google.com/file/d/1q-brm1NvthXbEjUzn3aZBn0SxwLpfG0u/view?usp=sharing">Report</a> </li>
+        </ul>
+      </nav>
+      <span>Last update: 2020</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    var slideIndex = 1;
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var slides = document.getElementsByClassName("slides");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (var i=0; i<slides.length; ++i)
+        slides[i].style.display = "none";
+      slides[slideIndex - 1].style.display = "flex";
+      console.log(slideIndex);
+    }
+
+    showSlides(1);
+  </script>
+
+</html>
